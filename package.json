@@ -10,6 +10,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@cypress/grep": "^4.1.0",
+    "@shelex/cypress-allure-plugin": "^2.40.2",
     "@types/cypress": "^1.1.3",
     "cypress": "^13.13.0",
     "typescript": "^5.5.3"

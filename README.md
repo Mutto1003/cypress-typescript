@@ -9,6 +9,8 @@ Step 3: Run commands
         - npm install cypress --save-dev
         - npm install typescript --save-dev
         - npm install --save-dev @types/cypress
+        - npm install @cypress/grep @shelex/cypress-allure-plugin --save-dev
+
 Step 4: initialize a new tsconfig.json file using command
         - npx tsc --init --types cypress --lib dom,es6
 Step 5: Run command

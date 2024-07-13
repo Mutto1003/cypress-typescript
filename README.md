@@ -1,6 +1,6 @@
 # cypress-typescript
 
-<!-- Create Project -->
+### How to set up Project ###
 
 Step 1: Create repo gitHub
 Step 2: Open folder in VS Code
@@ -16,4 +16,4 @@ Step 4: initialize a new tsconfig.json file using command
 Step 5: Run command
         - npx cypress open
 
-<!-- Setting Gen Report -->
+### Setting Gen Report ###

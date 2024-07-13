@@ -16,5 +16,4 @@ Step 4: initialize a new tsconfig.json file using command
 Step 5: Run command
         - npx cypress open
 
-
-<!--  -->
+<!-- Setting Gen Report -->

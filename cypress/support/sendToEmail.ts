@@ -1,4 +1,4 @@
-import nodemailer from 'nodemailer';
+import * as nodemailer from 'nodemailer';
 import winston from 'winston';
 import dotenv from "dotenv";
 dotenv.config();
@@ -40,36 +40,34 @@ const logger = winston.createLogger({
 //     });
 // }
 
-export async function sendMail(v:string) {
-    console.log(v)
-    try {
-        const transporter = nodemailer.createTransport({
-            service: 'gmail',
-            host: 'smtp.gmail.com',
-            port: 587,
-            secure: false,
-            auth: {
-                user: 'panithan.bunrong@gmail.com',
-                pass: 'wzxr qntk wtec fvdk'
-                // wzxr qntk wtec fvdk
-                // qmhq hzid fdkz hklq
-            }
-        });
+// Create a transport for sending emails (replace with your email service's data)
+const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    host: 'smtp.gmail.com',
+    port: 587,
+    secure: false,
+    auth: {
+        user: 'panithan.bunrong@gmail.com', // Your email address
+        pass: 'wzxrqntkwtecfvdk', // Your password
+        // qmhq hzid fdkz hklq
+        // wzxr qntk wtec fvdk
+    },
+});
 
-        // Example mail options
-        const mailOptions = {
-            from: 'panithan.bunrong@gmail.com',
-            to: 'panithan.bunrong@gmail.com',
-            subject: 'Test Email',
-            text: 'This is a test email.'
-        };
+// Set email options
+const mailOptions = {
+    from: 'panithan.bunrong@gmail.com', // Sender
+    to: 'panithan.bunrong@gmail.com', // Recipient
+    subject: 'Email Subject', // Email subject
+    text: 'This is a test email.'
+    // html: yourHTMLContent, // Email HTML content
+};
 
-        // Send mail
-        const info = await transporter.sendMail(mailOptions);
+// Send the email
+transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+        console.error('Email sending failed:', error);
+    } else {
         console.log('Email sent: ' + info.response);
-
-    } catch (error) {
-        console.error('Error sending email:', error);
-        throw error; // Rethrow the error to propagate it further if needed
     }
-}
+});

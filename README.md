@@ -17,7 +17,7 @@ Step 5: Run command
         - npx cypress open
 
 ### Setting allurereport ###
-# DOC :https://allurereport.org/docs/cypress/
+# DOC :https://allurereport.org/docs/cypress/ ###
 Step 1: Install the Allure Report command-line tool.
         - npm install --save-dev allure-commandline
 Step 2: Install the Allure Cypress adapter.
@@ -36,12 +36,19 @@ Pass the configuration options if necessary, see Allure Cypress configuration.
                 },
             },
         });
+
 Step 4: Run tests
         - npx cypress run
 Step 5: Generate a report
         - npx allure serve allure-results
 
+### Set up Jenkins ###
+
+### Send Email ###
+Step 1: npm install nodemailer @types/nodemailer
+Step 2: npm install dotenv winston
+
+### CICD Integration ###
 
 ### Docker Integration with Cypress ###
 
-### CICD Integration ###

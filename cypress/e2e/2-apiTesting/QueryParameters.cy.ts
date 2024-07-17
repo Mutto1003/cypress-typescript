@@ -1,5 +1,8 @@
+// import { sendMailRRR } from '../../support/sendToEmail'
+
 describe('', () => {
     it('Passing query and path parameters', () => {
+        // sendMailRRR();
         const queryParam = {
             page: 2
         };

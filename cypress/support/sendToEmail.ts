@@ -71,3 +71,5 @@ transporter.sendMail(mailOptions, (error, info) => {
         console.log('Email sent: ' + info.response);
     }
 });
+
+// npx ts-node cypress/support/sendToEmail.ts

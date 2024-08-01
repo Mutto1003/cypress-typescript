@@ -25,6 +25,9 @@ jobs:
         run: npx cypress install
 
       - name: Run Cypress tests
-        run: npx cypress run --spec 'cypress/e2e/2-apiTesting'
+        run: npx cypress run --spec 'cypress/e2e/2-apiTesting/HeadersAndCookies.cy.ts'
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+
+      - name: Send To Email
+        run: npx ts-node cypress/support/sendToEmail.ts

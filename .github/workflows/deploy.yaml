@@ -9,24 +9,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps: 
-      - name: Checkout repository
+        - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Setup Node.js
+        - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
           node-version: '20'
 
-      - name: Install dependencies
+        - name: Install dependencies
         run: npm install
 
-      - name: Install Cypress
-        run: npx cypress install
-
-      - name: Run Cypress tests
-        run: npx cypress run --spec 'cypress/e2e/2-apiTesting/HeadersAndCookies.cy.ts'
+        - name: Run Cypress tests
+        run: npx cypress run
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-
-      - name: Send To Email
-        run: npx ts-node cypress/support/sendToEmail.ts

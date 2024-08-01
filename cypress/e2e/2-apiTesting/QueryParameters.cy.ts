@@ -19,6 +19,7 @@ describe('', () => {
             expect(response.body.data).has.length(6); // records in data array
             expect(response.body.data[0]).have.property('id', 7);
             expect(response.body.data[0]).has.property('first_name', 'Michael');
+            
         });
     })
 })

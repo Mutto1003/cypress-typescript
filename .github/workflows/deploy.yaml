@@ -1,6 +1,10 @@
 name: Cypress Tests
 
-on:     
+on:
+  push:
+    branches:
+      - develop
+      
   schedule:
     - cron: '*/5 * * * *'
 

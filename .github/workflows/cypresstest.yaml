@@ -1,0 +1,33 @@
+name: Cypress Tests
+
+on:     
+  schedule:
+    - cron: '10 * * * *'  # This will run the workflow every day at 11:45 AM Thailand time (UTC+7)
+
+jobs: 
+  cypress-run: 
+    runs-on: ubuntu-latest
+
+    steps: 
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Install Cypress
+        run: npx cypress install
+
+      - name: Run Cypress tests
+        run: npx cypress run --spec 'cypress/e2e/2-apiTesting/HeadersAndCookies.cy.ts'
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+
+      - name: Send To Email
+        run: npx ts-node cypress/support/sendToEmail.ts
+

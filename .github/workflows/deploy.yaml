@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - develop
+      
+  schedule:
+    - cron: '45 4 * * *'
 
 jobs: 
   cypress-run: 

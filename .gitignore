@@ -8,6 +8,8 @@ node_modules/
 dist/
 allure-results/
 screenshots/
+results.txt
+full_results.txt
 
 # Compiled Java class files
 *.class

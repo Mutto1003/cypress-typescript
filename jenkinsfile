@@ -18,7 +18,7 @@ pipeline {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     sh """
                     source ~/.zshrc
-                    npx cypress run --spec 'cypress/e2e/2-apiTesting/HeadersAndCookies.cy.ts'
+                    npm run cypress:run
                     """      
                 }
             }

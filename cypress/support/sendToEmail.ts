@@ -1,7 +1,8 @@
 import * as nodemailer from 'nodemailer';
 import winston from 'winston';
 import dotenv from "dotenv";
-const path = require('../../results');
+const fs = require('fs');
+import path from 'path';
 dotenv.config();
 
 const logger = winston.createLogger({
@@ -55,19 +56,16 @@ const transporter = nodemailer.createTransport({
     },
 });
 
+const resultsPath = path.join(__dirname, '../../results/results.txt');
+
+const results = fs.readFileSync(resultsPath, 'utf-8');
+
 // Set email options
 const mailOptions = {
     from: 'panithan.bunrong@gmail.com', // Sender
     to: 'panithan.bunrong@gmail.com', // Recipient
     subject: 'Cypress Test Results', // Email subject
-    text: 'Attached are the Cypress test results.',
-    attachments: [
-        {
-          filename: 'results.txt',
-          path: path.join(__dirname, 'results.txt'),
-        },
-      ],
-    // html: yourHTMLContent, // Email HTML content
+    text: results,
 };
 
 // Send the email

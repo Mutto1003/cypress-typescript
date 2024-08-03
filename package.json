@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "cypress": "cypress open --e2e --browser chrome"
+    "cypress": "cypress open --e2e --browser chrome",
+    "cypress:run": "npx cypress run --spec 'cypress/e2e/2-apiTesting/HeadersAndCookies.cy.ts' > results/full_results.txt && grep -A 15 'Run Finished' results/full_results.txt > results/results.txt"
   },
   "keywords": [],
   "author": "",

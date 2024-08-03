@@ -1,17 +1,23 @@
 pipeline {
     agent any
-
     stages {
-        stages('Dependacy Install') {
-            echo '#### Start Install all dependency ####'
+        stage('Build') {
+            steps {
+                echo "Build"
+                //
+            }
         }
-
-        // stages('Running Test Script') {
-
-        // }
-
-        // stages('Send To Email') {
-
-        // }
+        stage('Test') {
+            steps {
+                echo "Test"
+                //
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo "Deploy"
+                //
+            }
+        }
     }
 }

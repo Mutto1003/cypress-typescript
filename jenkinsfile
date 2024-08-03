@@ -4,22 +4,33 @@ pipeline {
     //     cron('* * * * *')
     // }
     stages {
-        stage('Build') {
+        stage('Dependacy Install') {
             steps {
-                echo "Build"
-                //
+                echo '#### Start Install all dependency ####'
+                sh """
+                source ~/.zshrc
+                npm install
+                """
             }
         }
-        stage('End-To-End Test') {
+        stage('Running Test Script') {
             steps {
-                echo "End-To-End Test"
-                //
+                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                    sh """
+                    source ~/.zshrc
+                    npx cypress run --spec 'cypress/e2e/2-apiTesting/HeadersAndCookies.cy.ts'
+                    """      
+                }
             }
         }
-        stage('Deploy') {
+        stage('Sent to Email') {
             steps {
-                echo "Deploy"
-                //
+                script {
+                sh """
+                    source ~/.zshrc
+                    npx ts-node cypress/support/sendToEmail.ts
+                    """
+                }
             }
         }
     }

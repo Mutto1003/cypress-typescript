@@ -7,7 +7,7 @@ pipeline {
                 //
             }
         }
-        stage('Test') {
+        stage('End-To-End Test') {
             steps {
                 echo "End-To-End Test"
                 //

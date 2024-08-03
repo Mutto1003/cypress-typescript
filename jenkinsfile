@@ -1,0 +1,17 @@
+pipeline {
+    agent any
+
+    stages {
+        stages('Dependacy Install') {
+            echo '#### Start Install all dependency ####'
+        }
+
+        // stages('Running Test Script') {
+
+        // }
+
+        // stages('Send To Email') {
+
+        // }
+    }
+}
